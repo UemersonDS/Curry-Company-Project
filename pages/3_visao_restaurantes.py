@@ -182,7 +182,7 @@ def clean_code(df1):
 
 # -------------------------------------------------- Inicio da estrutura logica do código ---------------------------------------
 # -------------------------------------------------------------------------------------------------------------------------------
-df_raw = pd.read_csv(  'dataset/train.csv' )
+df_raw = pd.read_csv(  '../dataset/train.csv' )
 
 
 # Limpando os Dados
