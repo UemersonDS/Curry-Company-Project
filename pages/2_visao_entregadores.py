@@ -21,7 +21,7 @@ import numpy as np
 
 df_raw = pd.read_csv('dataset/train.csv')
 
-df1 = df_raw.copy()
+df = df_raw.copy()
 
 
 # Limpando os Dadojj
@@ -119,7 +119,7 @@ def clean_code(df):
 # -------------------------------------------------------------------------------------------------------------------------------
 
 # cleaning dataset
-df1 = clean_code (df)
+df1 = clean_code(df)
 
 
 # ==================================================
