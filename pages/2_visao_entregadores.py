@@ -50,7 +50,7 @@ def top_delivers(df1, top_asc):
 
 # Limpando os Dados
 
-def clean_code(df1):
+def clean_code(df):
     """""
         Está função tem a responsabilidade de limpar o DATAFRAME
         
@@ -66,35 +66,35 @@ def clean_code(df1):
     
     """""
     
-    # 1. Convertendo a coluna Age de texto para número
-    linhas_selecionadas = (df1['Delivery_person_Age'] != 'NaN ')
-    df1 = df1.loc[linhas_selecionadas, :].copy()
+  # 1. Convertendo a coluna Age de texto para número
+    linhas_selecionadas = (df['Delivery_person_Age'] != 'NaN ')
+    df = df.loc[linhas_selecionadas, :].copy()
 
-    df1['Delivery_person_Age'] = df1['Delivery_person_Age'].astype(int)
+    df['Delivery_person_Age'] = df['Delivery_person_Age'].astype(int)
 
 
     # 1.1. Revomendo os 'NaN' da coluna = 'Road_traffic_density'
     linhas_selecionadas = (df['Road_traffic_density'] != 'NaN ')
-    df1 = df1.loc[linhas_selecionadas, :].copy()
+    df = df.loc[linhas_selecionadas, :].copy()
 
     # 1.2. Revomendo os 'NaN' da coluna = 'City'
     linhas_selecionadas = (df['City'] != 'NaN ')
-    df1 = df1.loc[linhas_selecionadas, :].copy()
+    df = df.loc[linhas_selecionadas, :].copy()
 
     # 1.3. Revomendo os 'NaN' da coluna = 'festival'
     linhas_selecionadas = (df['Festival'] != 'NaN ')
-    df1 = df1.loc[linhas_selecionadas, :].copy()
+    df = df.loc[linhas_selecionadas, :].copy()
 
     # 2. Convertendo a coluna Ratigs de texto para número decimal (float)
-    df1['Delivery_person_Ratings'] = df1['Delivery_person_Ratings'].astype(float)
+    df['Delivery_person_Ratings'] = df['Delivery_person_Ratings'].astype(float)
 
     # 3. Convertendo a coluna order_date de texto para data
-    df1['Order_Date'] = pd.to_datetime(df1['Order_Date'], format = '%d-%m-%Y')
+    df['Order_Date'] = pd.to_datetime(df['Order_Date'], format = '%d-%m-%Y')
 
     # 4. Convertendo multiple deliveries de texto para numero inteiro (int)
-    linhas_selecionadas1 = (df1['multiple_deliveries'] != 'NaN ')
-    df1 = df1.loc[linhas_selecionadas1, :].copy()
-    df1['multiple_deliveries'] = df1['multiple_deliveries'].astype(int)
+    linhas_selecionadas1 = (df['multiple_deliveries'] != 'NaN ')
+    df = df.loc[linhas_selecionadas1, :].copy()
+    df['multiple_deliveries'] = df['multiple_deliveries'].astype(int)
 
     # 5. Removendo os espaços dentro de strings/texto/object
     #df = df.reset_index ( drop = True )
@@ -102,18 +102,18 @@ def clean_code(df1):
     #  df.loc[i, 'ID'] =  df.loc[i, 'ID'].strip()
 
     # 6. Removendo os espaços dentro de strings/texto/object
-    df1.loc[:, 'ID'] =  df1.loc[:, 'ID'].str.strip()
-    df1.loc[:, 'Road_traffic_density'] =  df1.loc[:, 'Road_traffic_density'].str.strip()
-    df1.loc[:, 'Type_of_order'] =  df1.loc[:, 'Type_of_order'].str.strip()
-    df1.loc[:, 'Type_of_vehicle'] =  df1.loc[:, 'Type_of_vehicle'].str.strip()
-    df1.loc[:, 'City'] =  df1.loc[:, 'City'].str.strip()
-    df1.loc[:, 'Festival'] =  df1.loc[:, 'Festival'].str.strip()
+    df.loc[:, 'ID'] =  df.loc[:, 'ID'].str.strip()
+    df.loc[:, 'Road_traffic_density'] =  df.loc[:, 'Road_traffic_density'].str.strip()
+    df.loc[:, 'Type_of_order'] =  df.loc[:, 'Type_of_order'].str.strip()
+    df.loc[:, 'Type_of_vehicle'] =  df.loc[:, 'Type_of_vehicle'].str.strip()
+    df.loc[:, 'City'] =  df.loc[:, 'City'].str.strip()
+    df.loc[:, 'Festival'] =  df.loc[:, 'Festival'].str.strip()
     # Limpando a coluna de time taken
-    df1['Time_taken(min)'] = df1['Time_taken(min)'].apply( lambda x: x.split( '(min) ')[1] ) #apply == quero aplicar uma função a todos 
-    df1['Time_taken(min)'] = df1['Time_taken(min)'].astype(int)
+    df['Time_taken(min)'] = df['Time_taken(min)'].apply( lambda x: x.split( '(min) ')[1] ) #apply == quero aplicar uma função a todos 
+    df['Time_taken(min)'] = df['Time_taken(min)'].astype(int)
     #lambda de x: da o acesso ao x, e o x é o valor de linha - representa a linha
 
-    return df1
+    return df
 
 # -------------------------------------------------- Inicio da estrutura logica do código ---------------------------------------
 # -------------------------------------------------------------------------------------------------------------------------------
