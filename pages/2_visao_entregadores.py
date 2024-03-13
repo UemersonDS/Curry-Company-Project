@@ -18,7 +18,8 @@ import numpy as np
 
 
 # Import dataset
-df_raw = pd.read_csv( '../dataset/train.csv')
+
+df_raw = pd.read_csv('dataset/train.csv')
 
 df1 = df_raw.copy()
 
@@ -116,12 +117,6 @@ def clean_code(df1):
 
 # -------------------------------------------------- Inicio da estrutura logica do código ---------------------------------------
 # -------------------------------------------------------------------------------------------------------------------------------
-df_raw = pd.read_csv(  '../dataset/train.csv' )
-
-
-# Limpando os Dados
-
-df = df_raw.copy()
 
 # cleaning dataset
 df1 = clean_code (df)
