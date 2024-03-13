@@ -24,7 +24,7 @@ st.set_page_config (page_title='Visão Restaurantes', page_icon='🍽️', layou
 
 df_raw = pd.read_csv( 'dataset/train.csv')
 
-df1 = df_raw.copy()
+df = df_raw.copy()
 
 # Funções
 
