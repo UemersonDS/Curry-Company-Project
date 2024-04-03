@@ -11,7 +11,6 @@ import re
 import streamlit as st
 from PIL import Image
 import folium
-# ou import PIL.Image as imgpil
 
 st.set_page_config (page_title='Visão Empresa', page_icon='📈', layout = 'wide')
 
@@ -32,7 +31,6 @@ def country_maps(df1):
                            popup = location_info[['City', 'Road_traffic_density']] ).add_to(map)
     folium_static ( map, width = 1024, height = 600 )
     return None
-    # Com ou sem return None tanta faz, poderia fazer sem tbm
             
             
             
@@ -167,11 +165,6 @@ def clean_code(df):
     df = df.loc[linhas_selecionadas1, :].copy()
     df['multiple_deliveries'] = df['multiple_deliveries'].astype(int)
 
-    # 5. Removendo os espaços dentro de strings/texto/object
-    #df = df.reset_index ( drop = True )
-    #for i in range (len(df)):
-    #  df.loc[i, 'ID'] =  df.loc[i, 'ID'].strip()
-
     # 6. Removendo os espaços dentro de strings/texto/object
     df.loc[:, 'ID'] =  df.loc[:, 'ID'].str.strip()
     df.loc[:, 'Road_traffic_density'] =  df.loc[:, 'Road_traffic_density'].str.strip()
@@ -180,9 +173,8 @@ def clean_code(df):
     df.loc[:, 'City'] =  df.loc[:, 'City'].str.strip()
     df.loc[:, 'Festival'] =  df.loc[:, 'Festival'].str.strip()
     # Limpando a coluna de time taken
-    df['Time_taken(min)'] = df['Time_taken(min)'].apply( lambda x: x.split( '(min) ')[1] ) #apply == quero aplicar uma função a todos 
+    df['Time_taken(min)'] = df['Time_taken(min)'].apply( lambda x: x.split( '(min) ')[1] )
     df['Time_taken(min)'] = df['Time_taken(min)'].astype(int)
-    #lambda de x: da o acesso ao x, e o x é o valor de linha - representa a linha
 
     return df
 
@@ -198,8 +190,6 @@ df1 = clean_code(df)
 # ==================================================
 st.header( 'Marketplace - Visão Cliente' )
 
-# image_path = '\Users\uemer\Repos\FTC\CICLO_5\logo.png'
-#image_path = 'logo.png'
 image = Image.open ( 'logo.png' )
 st.sidebar.image ( image, width=120 )
 
