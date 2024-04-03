@@ -12,7 +12,6 @@ import streamlit as st
 from PIL import Image
 import folium
 import numpy as np
-# ou import PIL.Image as imgpil
 
 st.set_page_config (page_title='Visão Restaurantes', page_icon='🍽️', layout = 'wide')
 
@@ -162,10 +161,6 @@ def clean_code(df):
     df = df.loc[linhas_selecionadas1, :].copy()
     df['multiple_deliveries'] = df['multiple_deliveries'].astype(int)
 
-    # 5. Removendo os espaços dentro de strings/texto/object
-    #df = df.reset_index ( drop = True )
-    #for i in range (len(df)):
-    #  df.loc[i, 'ID'] =  df.loc[i, 'ID'].strip()
 
     # 6. Removendo os espaços dentro de strings/texto/object
     df.loc[:, 'ID'] =  df.loc[:, 'ID'].str.strip()
@@ -195,8 +190,6 @@ df1 = clean_code(df)
 
 st.header( 'Marketplace - Visão Restaurantes' )
 
-# image_path = '\Users\uemer\Repos\FTC\CICLO_5\logo.png'
-#image_path = 'logo.png'
 image = Image.open ( 'logo.png' )
 st.sidebar.image ( image, width=120 )
 
