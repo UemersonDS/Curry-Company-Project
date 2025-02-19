@@ -1,4 +1,4 @@
-# Curry_Company
+# Curry Company
 ![curry_company](
 img/curry_company.png)
 # 1. Problema de negócio
