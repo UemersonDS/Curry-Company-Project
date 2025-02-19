@@ -1,4 +1,6 @@
 # Curry_Company
+![curry_company](
+img/curry_company.png)
 # 1. Problema de negócio
 A Cury Company é uma empresa de tecnologia que criou um aplicativo
 que conecta restaurantes, entregadores e pessoas.
